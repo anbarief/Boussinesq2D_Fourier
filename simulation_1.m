@@ -37,11 +37,11 @@ for i=1:1:N1
 endfor
 
 %%%%%%%%%%%%%%%% SETUP INITIAL CONDITIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-k=0.6; h=0.6; b0=10^6;
-w = sqrt(h^2  + k^2  + k^4);
-exact_solution = @(t) -(2*(k^4)*b0)*exp(k*X + h*Y - w*t)./((1 + (k^2)*b0*exp(k*X + h*Y - w*t) ).^2);
-prime_initial_condition = (2*b0*(k^4))*( w*exp(k*X + h*Y).*( 1 + b0*(k^2)*exp(k*X + h*Y)).^2 ...
- - 2*w*b0*(k^2)*(1 + b0*(k^2)*exp(k*X + h*Y)).*exp(2*k*X + 2*h*Y))./((1 + b0*(k^2)*exp(k*X + h*Y)).^4);
+alpha=0.6; beta=0.6; b0=10^6;
+co = sqrt(beta^2  + alpha^2  + alpha^4);
+exact_solution = @(t) -(2*(alpha^4)*b0)*exp(alpha*X + beta*Y - co*t)./((1 + (alpha^2)*b0*exp(alpha*X + beta*Y - co*t) ).^2);
+prime_initial_condition = (2*b0*(alpha^4))*( co*exp(alpha*X + beta*Y).*( 1 + b0*(alpha^2)*exp(alpha*X + beta*Y)).^2 ...
+ - 2*co*b0*(alpha^2)*(1 + b0*(alpha^2)*exp(alpha*X + beta*Y)).*exp(2*alpha*X + 2*beta*Y))./((1 + b0*(alpha^2)*exp(alpha*X + beta*Y)).^4);
 
 u_RK4(:,:,1) = exact_solution(0);
 v_RK4(:,:,1) = prime_initial_condition;
