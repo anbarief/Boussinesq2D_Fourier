@@ -117,11 +117,11 @@ toc;
 answer = input("PLAY ANIMATION? y/n", "s");
 while answer == 'y'
 close all
-surf(X,Y,u_STRANG(:,:,1),'edgecolor','none'); colormap(ocean); view(0,90); axis equal; xlabel('x'); ylabel('y'); colorbar;
+surf(X,Y,u_STRANG(:,:,1),'edgecolor','none'); colormap("turbo"); view(0,90); axis equal; xlabel('x'); ylabel('y'); colorbar;
 pause(5);
 for i = [2:1:nt]
   if mod(i,2) == 0
-   surf(X,Y,u_STRANG(:,:,i),'edgecolor','none'); colormap(ocean); view(0,90); axis equal; xlabel('x'); ylabel('y'); colorbar;
+   surf(X,Y,u_STRANG(:,:,i),'edgecolor','none'); colormap("turbo"); view(0,90); axis equal; xlabel('x'); ylabel('y'); colorbar;
    title(["t=", num2str(t(i))], 'FontSize', 20);
    pause(0.01);
   endif
